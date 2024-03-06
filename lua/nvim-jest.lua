@@ -6,10 +6,6 @@ local function get_current_file_path()
 	return vim.fn.expand("%:p")
 end
 
-local function get_current_folder_path()
-	return vim.fn.getcwd()
-end
-
 local function create_window()
 	vim.cmd("botright vnew")
 end
@@ -19,7 +15,7 @@ local function focus_last_accessed_window()
 end
 
 local function get_local_jest()
-	local root_dir = get_current_folder_path()
+	local root_dir = vim.fn.getcwd()
 	return root_dir .. "/node_modules/jest/bin/jest.js"
 end
 
