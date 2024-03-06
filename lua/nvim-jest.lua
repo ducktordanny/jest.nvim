@@ -25,6 +25,9 @@ end
 
 local function run_jest(args)
 	local t = {}
+	if config.jest_cmd == nil then
+		config.jest_cmd = get_local_jest()
+	end
 	table.insert(t, "terminal " .. config.jest_cmd)
 
 	if args ~= nil then
@@ -41,10 +44,6 @@ function M.setup(user_data)
 	if user_data ~= nil then
 		config.jest_cmd = user_data.jest_cmd or nil
 		config.silent = user_data.silent or nil
-	end
-
-	if config.jest_cmd == nil then
-		config.jest_cmd = get_local_jest()
 	end
 
 	if config.silent == nil then
