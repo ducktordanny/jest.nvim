@@ -7,7 +7,7 @@ local function get_current_file_path()
 end
 
 local function get_current_folder_path()
-  return vim.fn.expand("%:p:h")
+	return vim.fn.getcwd()
 end
 
 local function create_window()
